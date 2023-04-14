@@ -2,18 +2,19 @@
 #ifndef CHAT_GPT_CLIENT_HPP
 #define CHAT_GPT_CLIENT_HPP
 
+#include "chatbot_interface.hpp"
 #include <iostream>
 #include <string>
 #include <curl/curl.h>
 #include <nlohmann/json.hpp>
 
-class ChatGPTClient {
+class ChatGPTClient : public ChatBotInterface {
 public:
     ChatGPTClient();
     ~ChatGPTClient();
-    std::string send_message(std::string &message);
-    void reset_conversation();
-    void set_api_key(const std::string &api_key);
+    std::string send_message(std::string &message) override;
+    void reset_conversation() override;
+    void initialize(const std::string &api_key) override;
 
 private:
     CURL *curl;

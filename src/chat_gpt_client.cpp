@@ -25,7 +25,7 @@ ChatGPTClient::~ChatGPTClient() {
     curl_easy_cleanup(curl);
 }
 
-void ChatGPTClient::set_api_key(const string &api_key) {
+void ChatGPTClient::initialize(const string &api_key) {
     this->api_key = api_key;
 }
 
