@@ -4,7 +4,7 @@
 ChatBotAdapter::ChatBotAdapter(std::unique_ptr<ChatBotInterface> chatbot)
     : chatbot(std::move(chatbot)) {}
 
-std::string ChatBotAdapter::send_message(const std::string &message) {
+std::string ChatBotAdapter::send_message(std::string &message) {
     return chatbot->send_message(message);
 }
 

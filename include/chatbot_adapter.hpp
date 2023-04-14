@@ -8,7 +8,7 @@
 class ChatBotAdapter : public ChatBotInterface {
 public:
     ChatBotAdapter(std::unique_ptr<ChatBotInterface> chatbot);
-    std::string send_message(const std::string &message) override;
+    std::string send_message(std::string &message) override;
     void reset_conversation() override;
     void initialize(const std::string &config) override;
 

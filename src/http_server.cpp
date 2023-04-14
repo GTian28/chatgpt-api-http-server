@@ -1,6 +1,6 @@
 // http_server.cpp
 #include "http_server.hpp"
-#include "chatbot_adapter.hpp"
+#include "chat_gpt_client.hpp"
 
 HTTPServer::HTTPServer(int port, const std::string & api_key)
     : chatbot_adapter(std::make_unique<ChatGPTClient>()) {
