@@ -14,28 +14,28 @@
 
 ### 1. 安装必要的开发工具和库
 
-'''
+```
 sudo apt-get update
 sudo apt-get install build-essential cmake libcurl4-openssl-dev
-'''
+```
 
 ### 2. 克隆源代码
 
-'''
+```
 git clone https://github.com/GTian28/chatgpt-api-http-server.git
 cd chatgpt-api-http-server
-'''
+```
 
 ### 3. 编译项目
 
 在刚刚的路径下，依次执行以下代码：
 
-'''
+```
 mkdir build
 cd build
 cmake ..
 make
-'''
+```
 
 如果cmake过程中报错，尝试更新cmake。
 
@@ -45,8 +45,8 @@ make
 
 ### 5. 运行程序
 
-'''
+```
 ./chat_gpt_api_client
-'''
+```
 
 默认端口设置为8069，之后就可以通过8069端口发POST请求与ChatGPT聊天了。
