@@ -18,7 +18,7 @@ public:
 private:
     CURL *curl;
     std::string api_key;
-    int token_limit = 1000;
+    int token_limit = 1500;
     int token_count = 0;
     bool first_message = true;
     std::vector<nlohmann::json> conversation;
