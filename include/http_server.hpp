@@ -1,7 +1,7 @@
 // http_server.hpp
 #pragma once
 
-#include "chat_gpt_client.hpp"
+#include "chatbot_adapter.hpp"
 #include <crow.h>
 
 class HTTPServer {
@@ -10,7 +10,7 @@ public:
     void run();
 
 private:
-    ChatGPTClient chat_gpt_client;
+    ChatBotAdapter chatbot_adapter;
     crow::SimpleApp app;
 
     void setup_routes();

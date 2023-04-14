@@ -11,6 +11,7 @@ include_directories(include)
 
 add_executable(chat_gpt_api_client
     src/chat_gpt_client.cpp
+    src/chatbot_adapter.cpp
     src/http_server.cpp
     src/main.cpp
 )
