@@ -7,6 +7,7 @@
 #include <string>
 #include <curl/curl.h>
 #include <nlohmann/json.hpp>
+#include <mutex>
 
 class ChatGPTClient : public ChatBotInterface {
 public:
@@ -26,6 +27,8 @@ private:
 
     static size_t write_to_string(void *ptr, size_t size, size_t nmemb, void *stream);
     std::string perform_request(const std::string &request_body);
+
+    std::mutex conversation_mutex;
 };
 
 #endif // CHAT_GPT_CLIENT_HPP
