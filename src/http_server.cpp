@@ -3,7 +3,7 @@
 #include "chat_gpt_client.hpp"
 
 HTTPServer::HTTPServer(int port, const std::string & api_key)
-    : chatbot_adapter(std::make_unique<ChatGPTClient>()) {
+    : chatbot_adapter() {
     chatbot_adapter.initialize(api_key);
     app.port(port);
     setup_routes();
