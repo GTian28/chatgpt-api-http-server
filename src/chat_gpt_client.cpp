@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <mutex>
 
 using namespace std;
 
@@ -35,6 +36,9 @@ void ChatGPTClient::reset_conversation() {
 }
 
 string ChatGPTClient::send_message(string &message) {
+    std::unique_lock<std::mutex> lock(conversation_mutex);
+
+
     if (message == "conversation") {
         string result;
         for (auto &conver : conversation) {
@@ -74,6 +78,7 @@ string ChatGPTClient::send_message(string &message) {
         conversation.erase(conversation.begin() + 1);
     }
 
+    lock.unlock();
     return answer;
 }
 
