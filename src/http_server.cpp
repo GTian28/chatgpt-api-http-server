@@ -1,7 +1,8 @@
 // http_server.cpp
 #include "http_server.hpp"
 
-HTTPServer::HTTPServer(int port) {
+HTTPServer::HTTPServer(int port, const std::string & api_key) {
+    chat_gpt_client.set_api_key(api_key);
     app.port(port);
     setup_routes();
 }
@@ -24,10 +25,4 @@ void HTTPServer::setup_routes() {
             return crow::response(200, result);
         });
 
-    CROW_ROUTE(app, "/reset")
-        .methods("POST"_method)
-        ([this](const crow::request &req) {
-            chat_gpt_client.reset_conversation();
-            return crow::response(200);
-        });
 }

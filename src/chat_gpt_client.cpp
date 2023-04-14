@@ -35,12 +35,17 @@ void ChatGPTClient::reset_conversation() {
 }
 
 string ChatGPTClient::send_message(string &message) {
-    if (message == "conversation"){
-        for (auto & conver : conversation){
-        	  cout<<conver["role"]<<":";
-            cout<<conver["content"]<<endl;
+    if (message == "conversation") {
+        string result;
+        for (auto &conver : conversation) {
+            result += conver["role"].get<std::string>() + ": ";
+            result += conver["content"].get<std::string>() + "\n";
         }
-        return "以上是目前的conversation";
+        return result;
+    }
+    if (message == "reset"){
+        reset_conversation();
+        return "reset conversation";
     }
     if (first_message) {
         conversation.push_back({{"role", "system"}, {"content", message}});
@@ -76,6 +81,7 @@ string ChatGPTClient::perform_request(const string &request_body) {
     curl_easy_setopt(curl, CURLOPT_URL, "https://api.openai.com/v1/chat/completions");
     curl_easy_setopt(curl, CURLOPT_POST, 1);
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, request_body.c_str());
+    //std::cout<<"api_key:"<<api_key<<std::endl;
 
     std::vector<std::string> header_string = {
         "Authorization: Bearer " + api_key,

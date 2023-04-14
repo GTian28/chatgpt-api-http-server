@@ -6,7 +6,7 @@
 
 class HTTPServer {
 public:
-    HTTPServer(int port);
+    HTTPServer(int port, const std::string & api_key);
     void run();
 
 private:
