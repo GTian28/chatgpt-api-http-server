@@ -42,7 +42,9 @@ make
 
 ### 4. 配置ChatGPT API Key的环境变量（避免Key暴露在代码中）
 
-执行 `vi ~/.bashrc` ，保证在英文输入模式下，按 `i` 进入编辑模式，在最后添加 `export CHATGPT_API_KEY=你的chatgpt_api_key`。然后按 `Esc` 退出编辑模式，`Shift + :` 进入命令行模式，输入 `wq` ，然后回车保存退出。
+执行 `vi ~/.bashrc` ，保证在英文输入模式下，按 `i` 进入编辑模式，在最后添加 `export CHATGPT_API_KEY=你的chatgpt_api_key`。
+然后按 `Esc` 退出编辑模式，`Shift + :` 进入命令行模式，输入 `wq` ，然后回车保存退出。
+最后执行`source ~/.bashrc`刷新环境变量
 
 ### 5. 运行程序
 
