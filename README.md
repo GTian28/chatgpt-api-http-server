@@ -17,7 +17,7 @@
 
 ```
 sudo apt-get update
-sudo apt-get install build-essential cmake libcurl4-openssl-dev
+sudo apt-get install build-essential cmake libcurl4-openssl-dev nlohmann-json3-dev libboost-dev -y
 ```
 
 ### 2. 克隆源代码
